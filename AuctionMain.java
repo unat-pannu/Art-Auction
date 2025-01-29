@@ -38,23 +38,23 @@ public class AuctionMain {
                     System.out.print("Enter minimum increment: ");
                     if (!scanner.hasNextInt()) {
                         System.out.println("Invalid input. Minimum increment must be an integer.");
-                        scanner.next(); 
+                        scanner.next();  
                         break;
                     }
                     int minIncrement = scanner.nextInt();
                     scanner.nextLine();  
                     if (maxBid < 5000) {
-                        System.out.println("Maximum bid must be at least the starting amount (5000).");
+                        System.out.println("Error: Maximum bid must be at least the starting amount (5000). Please try again.");
                         break;
                     }
                     if (minIncrement <= 0) {
-                        System.out.println("Minimum increment must be greater than zero.");
+                        System.out.println("Error: Minimum increment must be greater than zero. Please try again.");
                         break;
                     }
                     auction.addBidder(name, maxBid, minIncrement);
                     System.out.println(name + " has been added as a bidder.");
                     break;
-                case 2:
+                    case 2:
                     if (auctionStarted) {
                         System.out.println("Auction has already been started. Reset it to start again.");
                     } else {
@@ -75,6 +75,7 @@ public class AuctionMain {
                     exit = true;
                     System.out.println("Exiting program...");
                     break;
+
                 default:
                     System.out.println("Invalid choice. Please try again.");
                     break;
